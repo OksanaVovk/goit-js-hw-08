@@ -38,7 +38,11 @@ function onFormSubmit(event) {
     email: emailEl.value,
     message: messageEl.value,
   };
-  console.log(informOfForm);
-  localStorage.removeItem(FEEDBACK_FORM_KEY);
-  event.currentTarget.reset();
+  if (emailEl.value === '' || messageEl.value === '') {
+    alert('Please fill in all the fields!');
+  } else {
+    console.log(informOfForm);
+    localStorage.removeItem(FEEDBACK_FORM_KEY);
+    event.currentTarget.reset();
+  }
 }
